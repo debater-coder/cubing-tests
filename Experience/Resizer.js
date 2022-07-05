@@ -10,7 +10,6 @@ export default class Resizer {
     resize() {
         this.width = this.canvas.clientWidth
         this.height = this.canvas.clientHeight
-        console.log(this.canvas)
         this.pixelRatio = Math.min(window.devicePixelRatio, 2)
     }
 }

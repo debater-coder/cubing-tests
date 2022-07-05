@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import * as dat from 'lil-gui'
+import Stats from 'stats.js'
 
 import Resizer from "./Resizer";
 import Camera from "./Camera";
@@ -17,6 +18,11 @@ export default class Experience {
         // Binding
         this.resize = this.resize.bind(this)
         this.update = this.update.bind(this)
+
+        // Stats
+        this.stats = new Stats()
+        this.stats.showPanel(0)
+        document.body.appendChild(this.stats.dom)
 
         // Sizing
         this.resizer = new Resizer(this.resize, canvas)
@@ -45,8 +51,14 @@ export default class Experience {
     }
 
     update() {
+        // Start stats monitoring
+        this.stats.begin()
+
         this.time.update()
         this._camera.update()
         this.renderer.render(this.scene, this.camera)
+
+        // End stats monitoring
+        this.stats.end()
     }
 }
