@@ -17,7 +17,7 @@ export default class Experience {
 
         // Binding
         this.resize = this.resize.bind(this)
-        this.update = this.update.bind(this)
+        this._update = this._update.bind(this)
 
         // Stats
         this.stats = new Stats()
@@ -28,7 +28,7 @@ export default class Experience {
         this.resizer = new Resizer(this.resize, canvas)
 
         // Time
-        this.time = new Time(this.update)
+        this.time = new Time(this._update)
 
         // Scene
         this.scene = new THREE.Scene()
@@ -50,15 +50,20 @@ export default class Experience {
         this.renderer.resize()
     }
 
-    update() {
+    _update() {
         // Start stats monitoring
         this.stats.begin()
 
         this.time.update()
         this._camera.update()
         this.renderer.render(this.scene, this.camera)
+        this.update()
 
         // End stats monitoring
         this.stats.end()
+    }
+
+    update() {
+
     }
 }

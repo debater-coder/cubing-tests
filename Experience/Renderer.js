@@ -9,6 +9,8 @@ export default class Renderer {
         })
         this.instance.setPixelRatio(Math.min(this.resizer.pixelRatio, 2))
         this.instance.setSize(this.resizer.width, this.resizer.height, false)
+        this.instance.physicallyCorrectLights = true
+        this.instance.outputEncoding = THREE.sRGBEncoding
     }
 
     resize() {
