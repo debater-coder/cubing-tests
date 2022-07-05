@@ -11,6 +11,8 @@ export default class Renderer {
         this.instance.setSize(this.resizer.width, this.resizer.height, false)
         this.instance.physicallyCorrectLights = true
         this.instance.outputEncoding = THREE.sRGBEncoding
+        this.instance.toneMappingExposure = 3
+        this.instance.toneMapping = THREE.ReinhardToneMapping
     }
 
     resize() {
