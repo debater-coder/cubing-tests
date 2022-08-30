@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "2.7.1"
+    "vite": "2.9.13"
   },
   "dependencies": {
     "cubing": "^0.26.3",
